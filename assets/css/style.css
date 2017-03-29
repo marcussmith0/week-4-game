@@ -1,0 +1,24 @@
+ h1 {
+ 	color: white;
+}
+
+
+img {
+
+	height: 60px;
+	width: 120px;
+}
+
+.img-main {
+
+	height: 110px;
+	width:  180px;
+}
+
+.img-bg {
+	background-color: white;
+	height: 120px;
+	width: 170px;
+	border: 5px solid gray;
+	padding-top: 2px;
+}
