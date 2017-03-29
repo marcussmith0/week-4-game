@@ -15,10 +15,90 @@
 
 	<script src="assets/javascript/game.js"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+
+  $( document ).ready(function() {
+
+	console.log("ready");
 
 
 
+
+	// select your player area
+
+	//this is what happens when you select luke
+
+
+	$("#luke").click(function() {
+		$(".img-bg").attr("background-color", "green");
+		$("#obi").appendTo("#enemies");
+		$("#darth").appendTo("#enemies");
+		$("#maul").appendTo("#enemies");
+
+
+
+	});
+
+	//this is what happens when you select obi
+
+
+	$("#obi").click(function() {
+		$(".img-bg").attr("background-color", "green");
+		$("#luke").appendTo("#enemies");
+		$("#darth").appendTo("#enemies");
+		$("#maul").appendTo("#enemies");
+
+
+
+	});
+
+	// this is what happens when you select darth
+
+
+	$("#darth").click(function() {
+		$(".img-bg").attr("background-color", "green");
+		$("#obi").appendTo("#enemies");
+		$("#luke").appendTo("#enemies");
+		$("#maul").appendTo("#enemies");
+
+
+
+	});
+
+	//this is what happens when you select maul
+
+
+	$("#maul").click(function() {
+		$(".img-bg").css("background-color", "red");
+		$("#obi").appendTo("#enemies");
+		$("#darth").appendTo("#enemies");
+		$("#luke").appendTo("#enemies");
+
+
+
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+</script>
 
 
 
@@ -111,7 +191,7 @@
 
 		<div class="row">
 
-			<button class="btn-danger"> ATTACK!! </button>
+			<button class="btn-danger btn-sm"> ATTACK!! </button>
 
 		</div>
 
