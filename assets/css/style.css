@@ -15,10 +15,33 @@ img {
 	width:  180px;
 }
 
-.img-bg {
-	background-color: white;
+
+.generic {
+	background-color:  white;
 	height: 120px;
 	width: 170px;
-	border: 5px solid gray;
+	border: 5px solid  gray;
 	padding-top: 2px;
+}
+
+.defender {
+
+	background-color: #ff6060;
+	height: 120px;
+	width: 170px;
+	border: 5px solid #c20000;
+	padding-top: 2px;
+
+
+}
+
+.userCharacter {
+
+	background-color:  #61ff70 ;
+	height: 120px;
+	width: 170px;
+	border: 5px solid  #01890e ;
+	padding-top: 2px;
+
+
 }
