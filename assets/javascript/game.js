@@ -2,6 +2,9 @@
 
 	console.log("ready");
 
+
+	// are the available charcter and their stats
+
 		var luke = {
 
 			healthPoints: 100,
@@ -39,9 +42,19 @@
 
 
 		//trying to check if a character is selected
+
 		var isCharacterChosen = false;
 		var isEnemyChosen = false;
 		var defenderPicked = false;
+
+		/* whenever one of the characters is selected at the very beginning of the game
+			a class is added called "userCharacter" and "generic" class is removed it turns green and
+			 sends it to the "Your Character area"
+
+			 At the same time it takes all of the other characters and give them the "defender" class
+			 they turn red and their "generic" class is removed as well and send the "available enemies"
+
+		*/
 		
 
 
@@ -75,6 +88,10 @@
 
 				});
 
+
+			// this function helps you chose which enemy you want to fight
+			// it sends them to the "defender" area
+
 			
 
 
@@ -98,6 +115,9 @@
 		}
 
 
+		// this function help you determine the identity of the person you are fighting
+
+
 
 			function whoIs () {
 
@@ -119,7 +139,7 @@
 						opponentHealthPoints = luke.healthPoints;
 						opponentAttackPower = luke.attackPower;
 						opponentCounterAttack = luke.counterAttackPower;
-						opHealthDisplay = $("#lukehp");
+						opHealthDisplay = $("#lukehp"); // we are grabbing the health value about the character so we can change it later
 					}
 
 					if($("#defender").children("div").attr("id") === "obi") {
@@ -161,6 +181,7 @@
 						userAttackPower = luke.attackPower;
 						userCounterAttack = luke.counterAttackPower;
 						userHealthDisplay = $("#lukehp");
+						roundWon = true;
 						
 						
 					}
@@ -173,6 +194,7 @@
 						userAttackPower = obi.attackPower;
 						userCounterAttack = obi.counterAttackPower;
 						userHealthDisplay = $("#obihp");
+						roundWon = true;
 						
 						
 
@@ -186,6 +208,7 @@
 						userAttackPower = darth.attackPower;
 						userCounterAttack = darth.counterAttackPower;
 						userHealthDisplay = $("#darthhp");
+						roundWon = true;
 						
 
 					}
@@ -198,9 +221,13 @@
 						userAttackPower = maul.attackPower;
 						userCounterAttack = maul.counterAttackPower;
 						userHealthDisplay = $("#maulhp");
+						roundWon = true;
 			
 
 					}
+
+
+					// when the "attack" button is pressed 
 
 
 
@@ -222,20 +249,23 @@
 
 							$("#character").remove();
 							$("#commentary").html("YOU WERE DEFEATED!").css("color", "red");
+							 $("button").off('click');
 
 
 						} else if (opponentHealthPoints <= 0) {
 
-							$("#defender").children().remove();
-							isEnemyChosen = false;
-							return;
+							// removes the defender after you beat him
 
-						
+							$("#defender").children().remove();
+                            isEnemyChosen = false;
+                            $("button").off('click');
+                            return;
+
+                            // after you beat your opponent you get to chose another to beat
+
+
 
 							chooseDefender();
-
-
-							
 
 
 
