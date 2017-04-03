@@ -47,6 +47,7 @@
 		var isEnemyChosen = false;
 		var defenderPicked = false;
 
+
 		/* whenever one of the characters is selected at the very beginning of the game
 			a class is added called "userCharacter" and "generic" class is removed it turns green and
 			 sends it to the "Your Character area"
@@ -131,6 +132,9 @@
 					var opponentCounterAttack;
 					var opHealthDisplay;
 
+					var enemyName;
+					var userName;
+
 
 					if($("#defender").children("div").attr("id") === "luke") {
 
@@ -181,8 +185,6 @@
 						userAttackPower = luke.attackPower;
 						userCounterAttack = luke.counterAttackPower;
 						userHealthDisplay = $("#lukehp");
-						roundWon = true;
-						
 						
 					}
 
@@ -194,7 +196,6 @@
 						userAttackPower = obi.attackPower;
 						userCounterAttack = obi.counterAttackPower;
 						userHealthDisplay = $("#obihp");
-						roundWon = true;
 						
 						
 
@@ -208,7 +209,6 @@
 						userAttackPower = darth.attackPower;
 						userCounterAttack = darth.counterAttackPower;
 						userHealthDisplay = $("#darthhp");
-						roundWon = true;
 						
 
 					}
@@ -221,7 +221,6 @@
 						userAttackPower = maul.attackPower;
 						userCounterAttack = maul.counterAttackPower;
 						userHealthDisplay = $("#maulhp");
-						roundWon = true;
 			
 
 					}
@@ -229,17 +228,33 @@
 
 					// when the "attack" button is pressed 
 
+					userName = $("#character").children("div").attr("id");
+					enemyName = $("#defender").children("div").attr("id");
+
 
 
 					$("button").click(function() {
+
+
+
+
 		
 
 
 						userHealthPoints -= opponentCounterAttack;
 						opponentHealthPoints -= userAttackPower;
 
+
 						userHealthDisplay.html(userHealthPoints);
 						opHealthDisplay.html(opponentHealthPoints);
+
+
+						$("#commentary").html("The user: " + userName + " attack was " + userAttackPower + ", " + 
+											"The enemy: " + enemyName + " attack was " + opponentCounterAttack).css("color", "yellow");
+
+						userAttackPower += 3;
+
+
 
 						console.log("=======================================");
 
@@ -258,7 +273,33 @@
 
 							$("#defender").children().remove();
                             isEnemyChosen = false;
+                           
+
+
+                            if ($("#enemies").children().length == 0) {
+
+								$("#commentary").html("YOU, WON YOU DEFEATED EVERYBODY!!").css("color", "#61ff70");
+
+   
+							}
+
+                            	 
                             $("button").off('click');
+
+
+
+
+
+                           
+
+
+
+
+
+
+
+
+
                             return;
 
                             // after you beat your opponent you get to chose another to beat
